@@ -10,9 +10,15 @@ import json
 import os
 import PIL
 from PIL import Image
+import argparse
+
+ap = argparse.ArgumentParser()
+ap.add_argument("-u", "--url", type=str,
+	help="url of hellofresh webpage", default='https://www.hellofresh.nl/recipes/plaattaart-met-spinazie-en-ei-5e902343ca6b100a6e6cd1e5')
+args = vars(ap.parse_args())
 
 # give the url as a string, it can be url from any site listed below
-scraper = scrape_me('https://www.hellofresh.nl/recipes/plaattaart-met-spinazie-en-ei-5e902343ca6b100a6e6cd1e5')
+scraper = scrape_me(args.get('url'))
 
 title = scraper.title()
 time = scraper.total_time()
