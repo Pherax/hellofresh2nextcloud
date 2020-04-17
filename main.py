@@ -35,7 +35,8 @@ except:
 with open('{}/{}.json'.format(title, title), 'w') as outfile:
     json.dump({"name":title,
                "description":"",
-               "url":"","image":image,
+               "url":args.get('url'),
+               "image":"\/Recipes\/{}\/full.jpg".format(title),
                "prepTime":"","cookTime":"",
                "totalTime":time,"recipeCategory":"",
                "keywords":"","recipeYield":yields,"tool":"",
